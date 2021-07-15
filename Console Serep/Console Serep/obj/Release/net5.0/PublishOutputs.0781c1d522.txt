@@ -1,0 +1,6 @@
+C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\bin\Release\net5.0\publish\Console Serep.exe
+C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\bin\Release\net5.0\publish\Console Serep.dll
+C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\bin\Release\net5.0\publish\Console Serep.deps.json
+C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\bin\Release\net5.0\publish\Console Serep.runtimeconfig.json
+C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\bin\Release\net5.0\publish\Console Serep.pdb
+C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\bin\Release\net5.0\publish\Newtonsoft.Json.dll
