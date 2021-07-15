@@ -12,7 +12,7 @@
         }
       }
     },
-    "net5.0/win-x64": {
+    "net5.0/linux-x64": {
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -70,7 +70,7 @@
       "projectName": "Console Serep",
       "projectPath": "C:\\Users\\Roman\\Documents\\Projects\\Console Serep\\Console Serep\\Console Serep\\Console Serep.csproj",
       "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roman\\Documents\\Projects\\Console Serep\\Console Serep\\Console Serep\\obj\\publish\\win-x64\\",
+      "outputPath": "C:\\Users\\Roman\\Documents\\Projects\\Console Serep\\Console Serep\\Console Serep\\obj\\publish\\linux-x64\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -120,6 +120,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[5.0.7, 5.0.7]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -129,7 +135,7 @@
       }
     },
     "runtimes": {
-      "win-x64": {
+      "linux-x64": {
         "#import": []
       }
     }
