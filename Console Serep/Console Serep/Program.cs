@@ -10,6 +10,7 @@ namespace Console_Serep
         static void Main()
         {
             ReadedReport json = File.Exists("report.json") ? JsonConvert.DeserializeObject<ReadedReport>(File.ReadAllText("report.json")) : new ReadedReport();
+            json.Sorter();
 
             Console.WriteLine("Вас приветствует прграмма Serep, удобное хранилище и калькулятор ваших отчетов о служении.\n" +
                 "Для того чтобы продолжить напишите /rep и введите отчет в формате: 00 00 00:00 00 00\n" +
@@ -31,7 +32,6 @@ namespace Console_Serep
 
                     case "/show":
                         Console.WriteLine("№ - Дата - публикации - видео - часы - п/п - изучения \n");
-                        json.Items.Reverse();   
                         int i = 0;
                         foreach (Report j in json.Items)
                         {
@@ -39,6 +39,22 @@ namespace Console_Serep
                             Console.WriteLine(i + ") " + j.Date + " - " + j.Publication + " - " + j.Video + " - " + j.Hour + ':' + j.Minute + " - " + j.Pp + " - " + j.Study);
                         }
                         json.Items.Reverse();
+                        break;
+
+                    case "/add":
+                        Console.WriteLine("Введите отчет в формате 00 00 00:00 00 00");
+                        string _rep = Console.ReadLine();
+                        string date = Console.ReadLine();
+                        if (json.Items == null)
+                            json.Items = new List<Report>();
+                        json.Items.Add(new Converter(_rep, date).Report);
+                        File.WriteAllText("report.json", JsonConvert.SerializeObject(json));
+                        break;
+
+                    case "/count":
+                        Console.WriteLine("Введите год и месяц, за которые надо посчитать отчет");
+                        string count = Console.ReadLine();
+                        json.Counter(count);
                         break;
 
                     default:

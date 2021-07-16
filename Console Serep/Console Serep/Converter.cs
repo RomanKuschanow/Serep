@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Console_Serep
+﻿namespace Console_Serep
 {
     class Converter
     {
-        public Report Report { get; }
+        public Report Report { get; set; }
 
         public Converter(string rep)
         {
@@ -19,6 +17,20 @@ namespace Console_Serep
             rep = rep[(rep.IndexOf(' ') + 1)..];
             string study = rep[0..];
             Report = new Report(pub, video, hour, minute, pp, study);
+        }
+        public Converter(string rep, string date)
+        {
+            string pub = rep[0..rep.IndexOf(' ')];
+            rep = rep[(rep.IndexOf(' ') + 1)..];
+            string video = rep[0..rep.IndexOf(' ')];
+            rep = rep[(rep.IndexOf(' ') + 1)..];
+            string hour = rep[0..rep.IndexOf(':')];
+            string minute = rep[(rep.IndexOf(':') + 1)..rep.IndexOf(' ')];
+            rep = rep[(rep.IndexOf(' ') + 1)..];
+            string pp = rep[0..rep.IndexOf(' ')];
+            rep = rep[(rep.IndexOf(' ') + 1)..];
+            string study = rep[0..];
+            Report = new Report(pub, video, hour, minute, pp, study, date);
         }
     }
 }
