@@ -10,7 +10,6 @@ namespace Console_Serep
         static void Main()
         {
             ReadedReport json = File.Exists("report.json") ? JsonConvert.DeserializeObject<ReadedReport>(File.ReadAllText("report.json")) : new ReadedReport();
-            json.Sorter();
 
             Console.WriteLine("Вас приветствует прграмма Serep, удобное хранилище и калькулятор ваших отчетов о служении.\n" +
                 "Для того чтобы продолжить напишите /rep и введите отчет в формате: 00 00 00:00 00 00\n" +
@@ -32,6 +31,7 @@ namespace Console_Serep
 
                     case "/show":
                         Console.WriteLine("№ - Дата - публикации - видео - часы - п/п - изучения \n");
+                        json.Sorter();
                         int i = 0;
                         foreach (Report j in json.Items)
                         {
