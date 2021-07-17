@@ -16,3 +16,21 @@ C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\obj\
 C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\obj\Release\net5.0\ref\Console Serep.dll
 C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.pdb
 C:\Users\Roman\Documents\Projects\Console Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.genruntimeconfig.cache
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Console Serep.exe
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Console Serep.deps.json
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Console Serep.runtimeconfig.json
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Console Serep.runtimeconfig.dev.json
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Console Serep.dll
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\ref\Console Serep.dll
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Console Serep.pdb
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\bin\Release\net5.0\Newtonsoft.Json.dll
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.csproj.AssemblyReference.cache
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.AssemblyInfoInputs.cache
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.AssemblyInfo.cs
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.csproj.CopyComplete
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.dll
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\ref\Console Serep.dll
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.pdb
+C:\Users\Roman\Documents\projects\Serep\Console Serep\Console Serep\obj\Release\net5.0\Console Serep.genruntimeconfig.cache
