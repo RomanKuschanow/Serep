@@ -47,7 +47,7 @@ namespace Console_Serep
                 Minute %= 60;
             }
 
-            Date = new DateTime(Convert.ToInt32(date[0..4]), Convert.ToInt32(date[5..7]), Convert.ToInt32(date[8..10]));
+            Date = new DateTime(Convert.ToInt32(date[0..4]), Convert.ToInt32(date[5..7]), Convert.ToInt32(date[8..10]), Convert.ToInt32(date[11..13]), Convert.ToInt32(date[14..16]), Convert.ToInt32(date[17..19]));
         }
     }
 }

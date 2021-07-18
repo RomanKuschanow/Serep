@@ -9,7 +9,20 @@ namespace Console_Serep
     {
         static void Main()
         {
-            ReadedReport json = File.Exists("report.json") ? JsonConvert.DeserializeObject<ReadedReport>(File.ReadAllText("report.json")) : new ReadedReport();
+            ReadedReport json;
+
+            try
+            {
+                json = File.Exists("report.json") ? JsonConvert.DeserializeObject<ReadedReport>(File.ReadAllText("report.json")) : new ReadedReport();
+            }
+            catch
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("!!!Файл поврежден, чтение не возможно. Будет создан новый файл. Поврежденный вы можете найти в папке с программой под именем 'destroyed'");
+                File.Move("report.json", "destroyed.json");
+                json = new();
+            }
+
             try
             {
                 json.Sorter();
@@ -21,10 +34,9 @@ namespace Console_Serep
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Вас приветствует прграмма Serep, удобное хранилище и калькулятор ваших отчетов о служении.\n" +
-                "Для того чтобы продолжить напишите /rep и введите отчет в формате: 00 00 00:00 00 00\n" +
-                "где первые и последние два нуля - это публикации, видео, п/п и изучения соответсвенно, а центральные 4 - часи.\n" +
-                "В подавляющем большинстве случаев за один раз двузначная цифра в отчете не появляеться, но часы, как и минуты, стоит записывать с первым нулем, например: 01:05\n" +
-                "Для более подробной информации напишите /help");
+                "Для того чтобы продолжить напишите /rep и введите отчет в формате: 0 0 0:0 0 0\n" +
+                "где первые и последние два нуля - это публикации, видео, п/п и изучения соответсвенно, а центральные 2 - часи.\n" +
+                "Для более подробной информации о списке команд напишите /help");
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -33,7 +45,7 @@ namespace Console_Serep
                 {
                     case "/rep":
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Введите отчет в формате 00 00 00:00 00 00");
+                        Console.WriteLine("Введите отчет в формате 0 0 0:0 0 0");
                         retry = true;
                         while (retry)
                         {
@@ -53,7 +65,6 @@ namespace Console_Serep
                                 Console.WriteLine("Возникло исключение, возможно параметры были введены не правильно");
                             }
                         }
-
                         break;
 
                     case "/show":
@@ -77,14 +88,14 @@ namespace Console_Serep
                             {
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.WriteLine("Возникло исключение, возможно параметры были введены не правильно");
+                                retry = false;
                             }
                         }
-
                         break;
 
                     case "/add":
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Введите отчет в формате 00 00 00:00 00 00");
+                        Console.WriteLine("Введите отчет в формате 0 0 0:0 0 0");
                         retry = true;
                         while (retry)
                         {
@@ -105,7 +116,6 @@ namespace Console_Serep
                                 Console.WriteLine("Возникло исключение, возможно параметры были введены не правильно");
                             }
                         }
-
                         break;
 
                     case "/count":
@@ -118,6 +128,7 @@ namespace Console_Serep
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 string date = Console.ReadLine();
+                                Console.ForegroundColor = ConsoleColor.White;
                                 json.Counter(date);
                                 retry = false;
                             }
@@ -127,7 +138,6 @@ namespace Console_Serep
                                 Console.WriteLine("Возникло исключение, возможно параметры были введены не правильно");
                             }
                         }
-
                         break;
 
                     case "/search":
@@ -156,7 +166,6 @@ namespace Console_Serep
                                 Console.WriteLine("Возникло исключение, возможно параметры были введены не правильно");
                             }
                         }
-
                         break;
 
                     case "/del":
@@ -186,8 +195,8 @@ namespace Console_Serep
                                     File.WriteAllText("report.json", JsonConvert.SerializeObject(json));
                                 }
                                 else if (Console.ReadLine() == "n")
-                                    break;
                                 retry = false;
+                                    break;
                             }
                             catch
                             {
@@ -195,7 +204,10 @@ namespace Console_Serep
                                 Console.WriteLine("Возникло исключение, возможно параметры были введены не правильно");
                             }
                         }
+                        break;
 
+                    case "/help":
+                        Comand.Help();
                         break;
 
                     default:
