@@ -228,6 +228,7 @@ namespace Serep
                 File.Create(Path.Text).Close();
                 json = new();
                 File_Open();
+                Registry_Write();
             }
             catch
             {
@@ -246,6 +247,7 @@ namespace Serep
                 File_Open();
                 if (json == null)
                     json = new();
+                Registry_Write();
             }
             catch
             {
@@ -273,17 +275,20 @@ namespace Serep
             }
         }
 
+        // событие при старте формы
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
+        // добавление по клавише Enter
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == (char)Keys.Enter)
                 Add_Click(Add, null);
         }
 
+        // кнопка добавления отчета
         private void Add_Click(object sender, EventArgs e)
         {
             try
@@ -295,12 +300,20 @@ namespace Serep
                 file.Write(JsonConvert.SerializeObject(json));
                 file.Close();
                 File_Open();
+                date.Value = DateTime.Now;
+                Publications.Value = 0;
+                Video.Value = 0;
+                Hour.Value = 0;
+                Minute.Value = 0;
+                Pp.Value = 0;
+                Study.Value = 0;
             }
             catch
             {
             }
         }
 
+        // изменение отчета
         private void Tabel_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -346,6 +359,7 @@ namespace Serep
             }
         }
 
+        // удаление отчета
         private void Tabel_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex == 6)
@@ -364,6 +378,7 @@ namespace Serep
             }
         }
 
+        // посчет отчета
         private void Count_Enter(object sender, EventArgs e)
         {
             StreamReader file = new(Path.Text);
@@ -415,6 +430,7 @@ namespace Serep
             }
         }
 
+        // запись в реестр
         private void Registry_Write()
         {
             RegistryKey currentUserKey = Registry.CurrentUser;
@@ -431,6 +447,7 @@ namespace Serep
             Serep.Close();
             }
 
+        // чтение из реестра
         private void Registry_Read()
         {
             try

@@ -30,25 +30,37 @@ namespace Serep
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Browser = new System.Windows.Forms.TreeView();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Add = new System.Windows.Forms.Button();
+            this.date = new System.Windows.Forms.DateTimePicker();
+            this.Study = new System.Windows.Forms.NumericUpDown();
+            this.Publications = new System.Windows.Forms.NumericUpDown();
+            this.Pp = new System.Windows.Forms.NumericUpDown();
+            this.Video = new System.Windows.Forms.NumericUpDown();
+            this.Minute = new System.Windows.Forms.NumericUpDown();
+            this.Hour = new System.Windows.Forms.NumericUpDown();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Report = new System.Windows.Forms.TabPage();
             this.Tabel = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Count = new System.Windows.Forms.TabPage();
             this.Counts = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,35 +70,41 @@ namespace Serep
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Add = new System.Windows.Forms.Button();
-            this.Study = new System.Windows.Forms.NumericUpDown();
-            this.Pp = new System.Windows.Forms.NumericUpDown();
-            this.Minute = new System.Windows.Forms.NumericUpDown();
-            this.Hour = new System.Windows.Forms.NumericUpDown();
-            this.Video = new System.Windows.Forms.NumericUpDown();
-            this.Publications = new System.Windows.Forms.NumericUpDown();
-            this.date = new System.Windows.Forms.DateTimePicker();
+            this.StudyLabel = new System.Windows.Forms.Label();
+            this.PpLabel = new System.Windows.Forms.Label();
+            this.MinuteLabel = new System.Windows.Forms.Label();
+            this.HourLabel = new System.Windows.Forms.Label();
+            this.VideoLabel = new System.Windows.Forms.Label();
+            this.PublicationLabel = new System.Windows.Forms.Label();
+            this.DateLabel = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Path = new System.Windows.Forms.ToolStripTextBox();
             this.Create = new System.Windows.Forms.ToolStripButton();
             this.Search = new System.Windows.Forms.ToolStripButton();
-            this.panel3.SuspendLayout();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Study)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Publications)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Video)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Minute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Hour)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabel)).BeginInit();
             this.Count.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Counts)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Study)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Minute)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Hour)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Video)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Publications)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,22 +114,12 @@ namespace Serep
             this.Browser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Browser.Location = new System.Drawing.Point(0, 0);
             this.Browser.Name = "Browser";
-            this.Browser.Size = new System.Drawing.Size(126, 261);
+            this.Browser.Size = new System.Drawing.Size(169, 379);
             this.Browser.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel3.Controls.Add(this.splitContainer1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(674, 261);
-            this.panel3.TabIndex = 11;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.VSplit;
+            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -122,203 +130,30 @@ namespace Serep
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer1.Size = new System.Drawing.Size(674, 261);
-            this.splitContainer1.SplitterDistance = 126;
+            this.splitContainer1.Size = new System.Drawing.Size(746, 379);
+            this.splitContainer1.SplitterDistance = 169;
             this.splitContainer1.TabIndex = 13;
             // 
-            // tabControl1
+            // panel1
             // 
-            this.tabControl1.Controls.Add(this.Report);
-            this.tabControl1.Controls.Add(this.Count);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 54);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(544, 207);
-            this.tabControl1.TabIndex = 18;
-            // 
-            // Report
-            // 
-            this.Report.Controls.Add(this.Tabel);
-            this.Report.Location = new System.Drawing.Point(4, 24);
-            this.Report.Name = "Report";
-            this.Report.Padding = new System.Windows.Forms.Padding(3);
-            this.Report.Size = new System.Drawing.Size(536, 179);
-            this.Report.TabIndex = 0;
-            this.Report.Text = "Отчеты";
-            this.Report.UseVisualStyleBackColor = true;
-            // 
-            // Tabel
-            // 
-            this.Tabel.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.Tabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tabel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column14});
-            this.Tabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tabel.Location = new System.Drawing.Point(3, 3);
-            this.Tabel.Name = "Tabel";
-            this.Tabel.RowTemplate.Height = 25;
-            this.Tabel.Size = new System.Drawing.Size(530, 173);
-            this.Tabel.TabIndex = 14;
-            this.Tabel.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Tabel_CellMouseClick);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Дата";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 57;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column2.HeaderText = "Публикации";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 101;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "Видео";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 65;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column4.HeaderText = "Часы";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 61;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "п/п";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 51;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column6.HeaderText = "Изучения";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 85;
-            // 
-            // Column14
-            // 
-            this.Column14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column14.HeaderText = "Удалить";
-            this.Column14.Name = "Column14";
-            this.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column14.Text = "Удалить";
-            this.Column14.ToolTipText = "Удалить";
-            this.Column14.UseColumnTextForButtonValue = true;
-            this.Column14.Width = 76;
-            // 
-            // Count
-            // 
-            this.Count.Controls.Add(this.Counts);
-            this.Count.Location = new System.Drawing.Point(4, 24);
-            this.Count.Name = "Count";
-            this.Count.Padding = new System.Windows.Forms.Padding(3);
-            this.Count.Size = new System.Drawing.Size(536, 179);
-            this.Count.TabIndex = 1;
-            this.Count.Text = "Подсчет";
-            this.Count.UseVisualStyleBackColor = true;
-            this.Count.Enter += new System.EventHandler(this.Count_Enter);
-            // 
-            // Counts
-            // 
-            this.Counts.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.Counts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Counts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12});
-            this.Counts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Counts.Location = new System.Drawing.Point(3, 3);
-            this.Counts.Name = "Counts";
-            this.Counts.RowTemplate.Height = 25;
-            this.Counts.Size = new System.Drawing.Size(530, 173);
-            this.Counts.TabIndex = 0;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Месяц/Год";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column8.HeaderText = "Публикации";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Видео";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column10.HeaderText = "Часы";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "п/п";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column12.HeaderText = "Изучения";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.panel4.Controls.Add(this.Add);
-            this.panel4.Controls.Add(this.Study);
-            this.panel4.Controls.Add(this.Pp);
-            this.panel4.Controls.Add(this.Minute);
-            this.panel4.Controls.Add(this.Hour);
-            this.panel4.Controls.Add(this.Video);
-            this.panel4.Controls.Add(this.Publications);
-            this.panel4.Controls.Add(this.date);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 25);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(544, 29);
-            this.panel4.TabIndex = 17;
+            this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.Controls.Add(this.Add);
+            this.panel1.Controls.Add(this.date);
+            this.panel1.Controls.Add(this.Study);
+            this.panel1.Controls.Add(this.Publications);
+            this.panel1.Controls.Add(this.Pp);
+            this.panel1.Controls.Add(this.Video);
+            this.panel1.Controls.Add(this.Minute);
+            this.panel1.Controls.Add(this.Hour);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 40);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(573, 29);
+            this.panel1.TabIndex = 19;
             // 
             // Add
             // 
@@ -330,6 +165,13 @@ namespace Serep
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
+            // date
+            // 
+            this.date.Location = new System.Drawing.Point(3, 3);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(140, 23);
+            this.date.TabIndex = 0;
+            // 
             // Study
             // 
             this.Study.AutoSize = true;
@@ -339,6 +181,15 @@ namespace Serep
             this.Study.Size = new System.Drawing.Size(50, 23);
             this.Study.TabIndex = 6;
             // 
+            // Publications
+            // 
+            this.Publications.AutoSize = true;
+            this.Publications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Publications.Location = new System.Drawing.Point(149, 3);
+            this.Publications.Name = "Publications";
+            this.Publications.Size = new System.Drawing.Size(50, 23);
+            this.Publications.TabIndex = 1;
+            // 
             // Pp
             // 
             this.Pp.AutoSize = true;
@@ -346,6 +197,14 @@ namespace Serep
             this.Pp.Name = "Pp";
             this.Pp.Size = new System.Drawing.Size(50, 23);
             this.Pp.TabIndex = 5;
+            // 
+            // Video
+            // 
+            this.Video.AutoSize = true;
+            this.Video.Location = new System.Drawing.Point(205, 3);
+            this.Video.Name = "Video";
+            this.Video.Size = new System.Drawing.Size(50, 23);
+            this.Video.TabIndex = 2;
             // 
             // Minute
             // 
@@ -370,29 +229,257 @@ namespace Serep
             this.Hour.Size = new System.Drawing.Size(41, 23);
             this.Hour.TabIndex = 3;
             // 
-            // Video
+            // tabControl1
             // 
-            this.Video.AutoSize = true;
-            this.Video.Location = new System.Drawing.Point(205, 3);
-            this.Video.Name = "Video";
-            this.Video.Size = new System.Drawing.Size(50, 23);
-            this.Video.TabIndex = 2;
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.Report);
+            this.tabControl1.Controls.Add(this.Count);
+            this.tabControl1.Location = new System.Drawing.Point(0, 72);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(573, 307);
+            this.tabControl1.TabIndex = 18;
             // 
-            // Publications
+            // Report
             // 
-            this.Publications.AutoSize = true;
-            this.Publications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Publications.Location = new System.Drawing.Point(149, 3);
-            this.Publications.Name = "Publications";
-            this.Publications.Size = new System.Drawing.Size(50, 23);
-            this.Publications.TabIndex = 1;
+            this.Report.Controls.Add(this.Tabel);
+            this.Report.Location = new System.Drawing.Point(4, 24);
+            this.Report.Name = "Report";
+            this.Report.Padding = new System.Windows.Forms.Padding(3);
+            this.Report.Size = new System.Drawing.Size(565, 279);
+            this.Report.TabIndex = 0;
+            this.Report.Text = "Отчеты";
+            this.Report.UseVisualStyleBackColor = true;
             // 
-            // date
+            // Tabel
             // 
-            this.date.Location = new System.Drawing.Point(3, 3);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(140, 23);
-            this.date.TabIndex = 0;
+            this.Tabel.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Tabel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.Tabel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tabel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column14});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Tabel.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Tabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tabel.Location = new System.Drawing.Point(3, 3);
+            this.Tabel.Name = "Tabel";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Tabel.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Tabel.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.Tabel.RowTemplate.Height = 25;
+            this.Tabel.Size = new System.Drawing.Size(559, 273);
+            this.Tabel.TabIndex = 14;
+            this.Tabel.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Tabel_CellMouseClick);
+            // 
+            // Count
+            // 
+            this.Count.Controls.Add(this.Counts);
+            this.Count.Location = new System.Drawing.Point(4, 24);
+            this.Count.Name = "Count";
+            this.Count.Padding = new System.Windows.Forms.Padding(3);
+            this.Count.Size = new System.Drawing.Size(565, 279);
+            this.Count.TabIndex = 1;
+            this.Count.Text = "Подсчет";
+            this.Count.UseVisualStyleBackColor = true;
+            this.Count.Enter += new System.EventHandler(this.Count_Enter);
+            // 
+            // Counts
+            // 
+            this.Counts.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Counts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.Counts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Counts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12});
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Counts.DefaultCellStyle = dataGridViewCellStyle15;
+            this.Counts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Counts.Location = new System.Drawing.Point(3, 3);
+            this.Counts.Name = "Counts";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Counts.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Counts.RowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.Counts.RowTemplate.Height = 25;
+            this.Counts.Size = new System.Drawing.Size(559, 273);
+            this.Counts.TabIndex = 0;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Год/Месяц";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Column8.HeaderText = "Пуб.";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 50;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Видео";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 50;
+            // 
+            // Column10
+            // 
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column10.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column10.HeaderText = "Часы";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 50;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "П/П";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 50;
+            // 
+            // Column12
+            // 
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column12.HeaderText = "Изучения";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 70;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel4.Controls.Add(this.StudyLabel);
+            this.panel4.Controls.Add(this.PpLabel);
+            this.panel4.Controls.Add(this.MinuteLabel);
+            this.panel4.Controls.Add(this.HourLabel);
+            this.panel4.Controls.Add(this.VideoLabel);
+            this.panel4.Controls.Add(this.PublicationLabel);
+            this.panel4.Controls.Add(this.DateLabel);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 25);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(573, 15);
+            this.panel4.TabIndex = 17;
+            // 
+            // StudyLabel
+            // 
+            this.StudyLabel.AutoSize = true;
+            this.StudyLabel.Location = new System.Drawing.Point(409, 0);
+            this.StudyLabel.Name = "StudyLabel";
+            this.StudyLabel.Size = new System.Drawing.Size(60, 15);
+            this.StudyLabel.TabIndex = 6;
+            this.StudyLabel.Text = "Изучения";
+            // 
+            // PpLabel
+            // 
+            this.PpLabel.AutoSize = true;
+            this.PpLabel.Location = new System.Drawing.Point(353, 0);
+            this.PpLabel.Name = "PpLabel";
+            this.PpLabel.Size = new System.Drawing.Size(30, 15);
+            this.PpLabel.TabIndex = 5;
+            this.PpLabel.Text = "П/П";
+            // 
+            // MinuteLabel
+            // 
+            this.MinuteLabel.AutoSize = true;
+            this.MinuteLabel.Location = new System.Drawing.Point(307, 0);
+            this.MinuteLabel.Name = "MinuteLabel";
+            this.MinuteLabel.Size = new System.Drawing.Size(35, 15);
+            this.MinuteLabel.TabIndex = 4;
+            this.MinuteLabel.Text = "Мин.";
+            // 
+            // HourLabel
+            // 
+            this.HourLabel.AutoSize = true;
+            this.HourLabel.Location = new System.Drawing.Point(261, 0);
+            this.HourLabel.Name = "HourLabel";
+            this.HourLabel.Size = new System.Drawing.Size(36, 15);
+            this.HourLabel.TabIndex = 3;
+            this.HourLabel.Text = "Часы";
+            // 
+            // VideoLabel
+            // 
+            this.VideoLabel.AutoSize = true;
+            this.VideoLabel.Location = new System.Drawing.Point(205, 0);
+            this.VideoLabel.Name = "VideoLabel";
+            this.VideoLabel.Size = new System.Drawing.Size(40, 15);
+            this.VideoLabel.TabIndex = 2;
+            this.VideoLabel.Text = "Видео";
+            // 
+            // PublicationLabel
+            // 
+            this.PublicationLabel.AutoSize = true;
+            this.PublicationLabel.Location = new System.Drawing.Point(149, 0);
+            this.PublicationLabel.Name = "PublicationLabel";
+            this.PublicationLabel.Size = new System.Drawing.Size(32, 15);
+            this.PublicationLabel.TabIndex = 1;
+            this.PublicationLabel.Text = "Пуб.";
+            // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Location = new System.Drawing.Point(3, 0);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(32, 15);
+            this.DateLabel.TabIndex = 0;
+            this.DateLabel.Text = "Дата";
             // 
             // toolStrip1
             // 
@@ -405,7 +492,7 @@ namespace Serep
             this.Search});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(544, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(573, 25);
             this.toolStrip1.TabIndex = 16;
             this.toolStrip1.Text = "toolStrip2";
             // 
@@ -435,24 +522,93 @@ namespace Serep
             this.Search.Text = "Найти";
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "Дата";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 57;
+            // 
+            // Column2
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column2.HeaderText = "Публикации";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 101;
+            // 
+            // Column3
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column3.HeaderText = "Видео";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 65;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column4.HeaderText = "Часы";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 61;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column5.HeaderText = "П/П";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 55;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column6.HeaderText = "Изучения";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 85;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Удалить";
+            this.Column14.Name = "Column14";
+            this.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column14.Text = "Удалить";
+            this.Column14.ToolTipText = "Удалить";
+            this.Column14.UseColumnTextForButtonValue = true;
+            this.Column14.Width = 76;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 261);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(746, 379);
+            this.Controls.Add(this.splitContainer1);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(600, 300);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.panel3.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Study)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Publications)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Pp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Video)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Minute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Hour)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.Report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Tabel)).EndInit();
@@ -460,12 +616,6 @@ namespace Serep
             ((System.ComponentModel.ISupportInitialize)(this.Counts)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Study)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Pp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Minute)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Hour)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Video)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Publications)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -474,26 +624,12 @@ namespace Serep
 
         #endregion
         private System.Windows.Forms.TreeView Browser;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage Report;
         private System.Windows.Forms.DataGridView Tabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewButtonColumn Column14;
         private System.Windows.Forms.TabPage Count;
         private System.Windows.Forms.DataGridView Counts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.NumericUpDown Study;
@@ -507,6 +643,27 @@ namespace Serep
         private System.Windows.Forms.ToolStripTextBox Path;
         private System.Windows.Forms.ToolStripButton Create;
         private System.Windows.Forms.ToolStripButton Search;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label StudyLabel;
+        private System.Windows.Forms.Label PpLabel;
+        private System.Windows.Forms.Label MinuteLabel;
+        private System.Windows.Forms.Label HourLabel;
+        private System.Windows.Forms.Label VideoLabel;
+        private System.Windows.Forms.Label PublicationLabel;
+        private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewButtonColumn Column14;
     }
 }
 

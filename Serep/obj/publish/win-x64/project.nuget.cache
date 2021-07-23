@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tR6/wpzyynkcH9PC+U1lN35a4AIsJ/obls83A6RM8LsBF1xRJzUlhAdZ8S+q4P/WIY9KLNG6sBA+sIAyG8QDNg==",
+  "dgSpecHash": "aVTrvfJiTka7u1Db+I/bR5mPoFecKK6JOIw57kO8D0sAcFo1IOIigboDApQG4LbqcmG1TV1Vzv9OpTVuTJwb7w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Roman\\Documents\\Projects\\Serep\\Serep\\Serep.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Roman\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Roman\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\5.0.8\\microsoft.netcore.app.runtime.win-x64.5.0.8.nupkg.sha512",
-    "C:\\Users\\Roman\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\5.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.5.0.8.nupkg.sha512",
-    "C:\\Users\\Roman\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\5.0.8\\microsoft.aspnetcore.app.runtime.win-x64.5.0.8.nupkg.sha512"
+    "C:\\Users\\Roman\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
