@@ -18,7 +18,7 @@ namespace Serep
 
         public Report(DateTime date, int publication, int video, int hour, int minute, int pp, int study)
         {
-            Date = date;
+            Date = new(date.Year, date.Month, date.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, DateTime.Now.Millisecond);
             Publication = publication;
             Video = video;
             Hour = hour;
