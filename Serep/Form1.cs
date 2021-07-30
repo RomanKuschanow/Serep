@@ -265,7 +265,7 @@ namespace Serep
                 json.Sorter();
                 foreach (Report item in json.Items)
                 {
-                    string[] row = new string[] { item.Date.ToString(), item.Publication.ToString(), item.Video.ToString(), item.Hour.ToString() + ':' + item.Minute.ToString(), item.Pp.ToString(), item.Study.ToString() };
+                    string[] row = new string[] { item.Date.ToString(), item.Publication.ToString(), item.Video.ToString(), item.Hour.ToString() + ':' + item.Minute.ToString(), item.Pp.ToString(), item.Study.ToString(), item.Notes.ToString() };
                     param.Add(row);
                 }
                 foreach (string[] item in param)
@@ -307,6 +307,7 @@ namespace Serep
                 Minute.Value = 0;
                 Pp.Value = 0;
                 Study.Value = 0;
+
             }
             catch
             {
@@ -345,6 +346,10 @@ namespace Serep
                         json.Items[e.RowIndex].Study = Convert.ToInt32(Tabel[5, e.RowIndex].Value);
                         break;
 
+                    case 6:
+                        json.Items[e.RowIndex].Notes = Convert.ToString(Tabel[6, e.RowIndex].Value);
+                        break;
+
                     default:
                         break;
                 }
@@ -362,7 +367,7 @@ namespace Serep
         // удаление отчета
         private void Tabel_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 7)
             {
                 try
                 {
@@ -434,18 +439,17 @@ namespace Serep
         private void Registry_Write()
         {
             RegistryKey currentUserKey = Registry.CurrentUser;
-            RegistryKey Serep;
             try
             {
-                Serep = currentUserKey.CreateSubKey("Serep");
+                currentUserKey.DeleteSubKey("Serep");
             }
             catch
             {
-                Serep = currentUserKey.OpenSubKey("Serep");
             }
+            RegistryKey Serep = currentUserKey.CreateSubKey("Serep");
             Serep.SetValue("path", Path.Text);
             Serep.Close();
-            }
+        }
 
         // чтение из реестра
         private void Registry_Read()

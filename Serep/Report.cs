@@ -12,6 +12,7 @@ namespace Serep
         public int Video { get; set; }
         public int Pp { get; set; }
         public int Study { get; set; }
+        public string Notes { get; set; }
 
         [JsonConstructor]
         public Report() { }
@@ -25,6 +26,7 @@ namespace Serep
             Minute = minute;
             Pp = pp;
             Study = study;
+            Notes = "";
         }
     }
 }
