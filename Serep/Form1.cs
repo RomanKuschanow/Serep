@@ -421,6 +421,8 @@ namespace Serep
                         }
                     }
                 }
+
+
                 for (int i = 0; i < param.Count; i++)
                 {
                     if (param[i].Length == 1)
@@ -428,9 +430,19 @@ namespace Serep
                     else
                         param[i] = new object[] { param[i][0], param[i][1], false };
                 }
+                param.Reverse();
                 foreach (object[] item in param)
                 {
-                    Counts.Rows.Add(json.Counter(Convert.ToInt32(item[0]), Convert.ToInt32(item[1]), Convert.ToBoolean(item[2])));
+                    if(Counts.Rows.Count > 1)
+                    {
+                        if (Convert.ToBoolean(item[2]) == false)
+                        {
+                            Counts.Rows.Insert(0, json.Counter(Convert.ToInt32(item[0]), Convert.ToInt32(item[1]), Convert.ToBoolean(item[2]), Convert.ToInt32(Counts[3, 0].Value.ToString()[(Counts[3, 0].Value.ToString().IndexOf(':') + 1)..])));
+                            Counts[3, 1].Value = Counts[3, 1].Value.ToString()[..Counts[3, 1].Value.ToString().IndexOf(':')];
+                        }
+                    }
+                    else
+                        Counts.Rows.Insert(0, json.Counter(Convert.ToInt32(item[0]), Convert.ToInt32(item[1]), Convert.ToBoolean(item[2]), 0));
                 }
             }
         }

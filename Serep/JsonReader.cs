@@ -60,19 +60,23 @@ namespace Serep
             return id;
         }
 
-        public string[] Counter(int year, int month, bool swich)
+        public string[] Counter(int year, int month, bool swich, int extra_minutes)
         {
             string strdate;
-            if (swich == true)
-                strdate = year.ToString();
-            else
-                strdate = year.ToString() + '.' + month.ToString();
             int pub = 0;
             int video = 0;
             int hour = 0;
             int minute = 0;
             int pp = 0;
             int study = 0;
+
+            if (swich == true)
+                strdate = year.ToString();
+            else
+            {
+                strdate = year.ToString() + '.' + month.ToString();
+                minute = extra_minutes;
+            }
 
             for (int i = 0; i < Items.Count; i++)
             {
