@@ -447,6 +447,8 @@ namespace Serep
             }
         }
 
+        //
+
         // запись в реестр
         private void Registry_Write()
         {
@@ -483,6 +485,48 @@ namespace Serep
             catch
             {
             }
+        }
+
+        private void Calc_Hour_1_ValueChanged(object sender, EventArgs e)
+        {
+            if (Calc_Hour_1.Value > 23)
+                Calc_Hour_1.Value = 0;
+        }
+
+        private void Calc_Minutes_1_ValueChanged(object sender, EventArgs e)
+        {
+            if (Calc_Minutes_1.Value > 59)
+            {
+                Calc_Minutes_1.Value = 0;
+                Calc_Hour_1.Value++;
+            }
+        }
+
+        private void Calc_Hour_2_ValueChanged(object sender, EventArgs e)
+        {
+            if (Calc_Hour_2.Value > 23)
+                Calc_Hour_2.Value = 0;
+        }
+
+        private void Calc_Minutes_2_ValueChanged(object sender, EventArgs e)
+        {
+            if (Calc_Minutes_2.Value > 59)
+            {
+                Calc_Minutes_2.Value = 0;
+                Calc_Hour_2.Value++;
+            }
+        }
+
+        private void Calc_button_time_Click(object sender, EventArgs e)
+        {
+            TimeSpan dateTime = new();
+            if (Calc_Hour_2.Value > Calc_Hour_1.Value)
+               dateTime = new DateTime(0001, 1, 1, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
+            else
+                dateTime = new DateTime(0001, 1, 2, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
+
+            Hour.Value = dateTime.Hours;
+            Minute.Value = dateTime.Minutes;
         }
     }
 }

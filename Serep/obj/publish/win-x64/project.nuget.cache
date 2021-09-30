@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5TQIS3MY4tKHsXTg2lJOGLgWH3DLUygTgykm7WRhtiIidos7O/ZmadCew0OnVSpf/9S+UKlLoOCIZrNo71rhzA==",
+  "dgSpecHash": "hjwQRE6kTN9iPx+TAoQ9LSh8pz+W0yTD0IsTnTweCQnoG5ttBHIchdeZbYKjzXth1KB2opNlPMj2bW2fCQmBYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Roman\\Documents\\Projects\\Serep\\Serep\\Serep.csproj",
+  "projectFilePath": "C:\\Users\\Roman\\Documents\\projects\\Serep\\Serep\\Serep.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Roman\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
