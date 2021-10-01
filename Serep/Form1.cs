@@ -5,12 +5,15 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Microsoft.Win32;
+using System.Timers;
 
 namespace Serep
 {
     public partial class Form1 : Form
     {
         ReadedReport json;
+        bool timer = false;
+        public delegate void delegat();
 
         public Form1()
         {
@@ -22,7 +25,14 @@ namespace Serep
             Browser.BeforeCollapse += Browser_BeforeCollapse;
             // заполняем дерево дисками
             FillDriveNodes();
-            Registry_Read();
+
+            Path.Text = Registry_Read("path", Registry.CurrentUser.CreateSubKey("Serep")).ToString();
+            StreamReader file = new(Path.Text);
+            json = JsonConvert.DeserializeObject<ReadedReport>(file.ReadToEnd());
+            file.Close();
+            File_Open();
+            if (json == null)
+                json = new();
         }
 
 
@@ -166,7 +176,7 @@ namespace Serep
                         File_Open();
                         if (json == null)
                             json = new();
-                        Registry_Write();
+                        Registry_Write("path", Path.Text, RegistryValueKind.String, Registry.CurrentUser.CreateSubKey("Serep"));
                     }
                 }
             }
@@ -174,7 +184,7 @@ namespace Serep
             {
                 MessageBox.Show("!!!Файл поврежден или не предназначен для чтения данной программой.");
             }
-            Registry_Read();
+            Registry_Read("path", Registry.CurrentUser.CreateSubKey("Serep"));
         }
 
         // получаем все диски на компьютере
@@ -228,7 +238,7 @@ namespace Serep
                 File.Create(Path.Text).Close();
                 json = new();
                 File_Open();
-                Registry_Write();
+                Registry_Write("path", Path.Text, RegistryValueKind.String, Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time"));
             }
             catch
             {
@@ -247,7 +257,7 @@ namespace Serep
                 File_Open();
                 if (json == null)
                     json = new();
-                Registry_Write();
+                Registry_Write("path", Path.Text, RegistryValueKind.String, Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time"));
             }
             catch
             {
@@ -450,49 +460,83 @@ namespace Serep
         //
 
         // запись в реестр
-        private void Registry_Write()
+        private void Registry_Write(string key, object o, RegistryValueKind valueKind, RegistryKey subKey)
         {
-            RegistryKey currentUserKey = Registry.CurrentUser;
-            try
-            {
-                currentUserKey.DeleteSubKey("Serep");
-            }
-            catch
-            {
-            }
-            RegistryKey Serep = currentUserKey.CreateSubKey("Serep");
-            Serep.SetValue("path", Path.Text);
-            Serep.Close();
+            subKey.SetValue(key, o, valueKind);
+            subKey.Close();
         }
 
         // чтение из реестра
-        private void Registry_Read()
+        private object Registry_Read(string key, RegistryKey subKey)
         {
             try
             {
-                RegistryKey currentUserKey = Registry.CurrentUser;
-                RegistryKey Serep = currentUserKey.OpenSubKey("Serep");
-                Path.Text = Serep.GetValue("path").ToString();
-                StreamReader file = new(Path.Text);
-                json = JsonConvert.DeserializeObject<ReadedReport>(file.ReadToEnd());
-                file.Close();
-                File_Open();
-                if (json == null)
-                    json = new();
-                Registry_Write();
-                Serep.Close();
+                object o = subKey.GetValue(key);
+                subKey.Close();
+                return o;
+            }
+            catch
+            {
+                return new();
+            }
+        }
+
+        //событие при открытии вкладки Калькулятора
+        private void Calc_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                Calc_Hour_1.Value = Convert.ToInt32(Registry_Read("Hour_1", Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time")));
+                Calc_Hour_2.Value = Convert.ToInt32(Registry_Read("Hour_2", Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time")));
+                Calc_Minutes_1.Value = Convert.ToInt32(Registry_Read("Minutes_1", Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time")));
+                Calc_Minutes_2.Value = Convert.ToInt32(Registry_Read("Minutes_2", Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time")));
+                timer = Convert.ToBoolean(Registry_Read("timer", Registry.CurrentUser.CreateSubKey("Serep")));
+
+                Invoke(new delegat(timer_label_set_value), null);
+
+                if (timer)
+                    timer_button.Text = "Остановить";
+                else
+                    timer_button.Text = "Запустить";
+
+                System.Timers.Timer aTimer = new System.Timers.Timer(1000);
+                aTimer.Elapsed += new ElapsedEventHandler(Timer);
+                aTimer.Enabled = true;
             }
             catch
             {
             }
         }
 
+        //таймер
+        private void Timer(object source, ElapsedEventArgs e)
+        {
+            try
+            {
+                if (timer)
+                    Invoke(new delegat(timer_label_set_value), null);
+            }
+            catch
+            {
+            }
+        }
+
+        //установка значения текста таймера
+        private void timer_label_set_value()
+        {
+            timer_label.Text = (DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Hours.ToString() + ':' + (DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Minutes.ToString();
+        }
+
+        //событие при изменении стартового значения часов
         private void Calc_Hour_1_ValueChanged(object sender, EventArgs e)
         {
             if (Calc_Hour_1.Value > 23)
                 Calc_Hour_1.Value = 0;
+
+            Registry_Write("hour_1", Calc_Hour_1.Value, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time"));
         }
 
+        //событие при изменении стартового значения минут
         private void Calc_Minutes_1_ValueChanged(object sender, EventArgs e)
         {
             if (Calc_Minutes_1.Value > 59)
@@ -500,14 +544,20 @@ namespace Serep
                 Calc_Minutes_1.Value = 0;
                 Calc_Hour_1.Value++;
             }
+
+            Registry_Write("Minutes_1", Calc_Minutes_1.Value, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time"));
         }
 
+        //событие при изменении конечного значения часов
         private void Calc_Hour_2_ValueChanged(object sender, EventArgs e)
         {
             if (Calc_Hour_2.Value > 23)
                 Calc_Hour_2.Value = 0;
+
+            Registry_Write("hour_2", Calc_Hour_2.Value, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time"));
         }
 
+        //событие при изменении конечного значения минут
         private void Calc_Minutes_2_ValueChanged(object sender, EventArgs e)
         {
             if (Calc_Minutes_2.Value > 59)
@@ -515,10 +565,16 @@ namespace Serep
                 Calc_Minutes_2.Value = 0;
                 Calc_Hour_2.Value++;
             }
+
+            Registry_Write("Minutes_2", Calc_Minutes_2.Value, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time"));
         }
 
+        //событие при нажатии кнопки подсчета и переноса
         private void Calc_button_time_Click(object sender, EventArgs e)
         {
+            if(timer)
+                timer_button_Click(Add, null);
+
             TimeSpan dateTime = new();
             if (Calc_Hour_2.Value > Calc_Hour_1.Value)
                dateTime = new DateTime(0001, 1, 1, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
@@ -527,6 +583,46 @@ namespace Serep
 
             Hour.Value = dateTime.Hours;
             Minute.Value = dateTime.Minutes;
+
+            Calc_Hour_1.Value = 0;
+            Calc_Hour_2.Value = 0;
+            Calc_Minutes_1.Value = 0;
+            Calc_Minutes_2.Value = 0;
+        }
+
+        //собитие при запуске/остановке таймера
+        private void timer_button_Click(object sender, EventArgs e)
+        {
+            timer = !timer;
+
+            if (timer)
+            {
+                Calc_Hour_1.Value = 0;
+                Calc_Hour_2.Value = 0;
+                Calc_Minutes_1.Value = 0;
+                Calc_Minutes_2.Value = 0;
+                timer_label.Text = "0:0";
+                timer_button.Text = "Остановить";
+                DateTime dateTime = DateTime.Now;
+                if (DateTime.Now.Second > 30)
+                    dateTime = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute + 1, 0);
+
+                    Calc_Hour_1.Value = dateTime.Hour;
+                    Calc_Minutes_1.Value = dateTime.Minute;
+
+                Registry_Write("timer", timer, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep"));
+            }
+            else
+            {
+                timer_button.Text = "Запустить";
+                DateTime dateTime = DateTime.Now;
+                if (DateTime.Now.Second > 30)
+                    dateTime = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute + 1, 0);
+
+                Calc_Hour_2.Value = dateTime.Hour;
+                Calc_Minutes_2.Value = dateTime.Minute;
+
+            }
         }
     }
 }
