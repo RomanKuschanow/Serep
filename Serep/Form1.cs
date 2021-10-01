@@ -609,8 +609,6 @@ namespace Serep
 
                     Calc_Hour_1.Value = dateTime.Hour;
                     Calc_Minutes_1.Value = dateTime.Minute;
-
-                Registry_Write("timer", timer, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep"));
             }
             else
             {
@@ -623,6 +621,7 @@ namespace Serep
                 Calc_Minutes_2.Value = dateTime.Minute;
 
             }
+                Registry_Write("timer", timer, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep"));
         }
     }
 }
