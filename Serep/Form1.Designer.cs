@@ -53,8 +53,8 @@ namespace Serep
             this.BrowserTab = new System.Windows.Forms.TabPage();
             this.Browser = new System.Windows.Forms.TreeView();
             this.Calc = new System.Windows.Forms.TabPage();
-            this.timer_button = new System.Windows.Forms.Button();
             this.timer_panel = new System.Windows.Forms.Panel();
+            this.timer_button = new System.Windows.Forms.Button();
             this.timer_label = new System.Windows.Forms.Label();
             this.Calc_button_time = new System.Windows.Forms.Button();
             this.Calc_Panel_time = new System.Windows.Forms.Panel();
@@ -202,16 +202,6 @@ namespace Serep
             this.Calc.UseVisualStyleBackColor = true;
             this.Calc.Enter += new System.EventHandler(this.Calc_Enter);
             // 
-            // timer_button
-            // 
-            this.timer_button.Dock = System.Windows.Forms.DockStyle.Right;
-            this.timer_button.Location = new System.Drawing.Point(119, 0);
-            this.timer_button.Name = "timer_button";
-            this.timer_button.Size = new System.Drawing.Size(75, 25);
-            this.timer_button.TabIndex = 4;
-            this.timer_button.UseVisualStyleBackColor = true;
-            this.timer_button.Click += new System.EventHandler(this.timer_button_Click);
-            // 
             // timer_panel
             // 
             this.timer_panel.Controls.Add(this.timer_button);
@@ -221,6 +211,16 @@ namespace Serep
             this.timer_panel.Name = "timer_panel";
             this.timer_panel.Size = new System.Drawing.Size(194, 25);
             this.timer_panel.TabIndex = 3;
+            // 
+            // timer_button
+            // 
+            this.timer_button.Dock = System.Windows.Forms.DockStyle.Right;
+            this.timer_button.Location = new System.Drawing.Point(107, 0);
+            this.timer_button.Name = "timer_button";
+            this.timer_button.Size = new System.Drawing.Size(87, 25);
+            this.timer_button.TabIndex = 4;
+            this.timer_button.UseVisualStyleBackColor = true;
+            this.timer_button.Click += new System.EventHandler(this.timer_button_Click);
             // 
             // timer_label
             // 

@@ -13,6 +13,7 @@ namespace Serep
     {
         ReadedReport json;
         bool timer = false;
+        bool clock = false;
         public delegate void delegat();
 
         public Form1()
@@ -492,14 +493,20 @@ namespace Serep
                 Calc_Minutes_2.Value = Convert.ToInt32(Registry_Read("Minutes_2", Registry.CurrentUser.CreateSubKey("Serep").CreateSubKey("Time")));
                 timer = Convert.ToBoolean(Registry_Read("timer", Registry.CurrentUser.CreateSubKey("Serep")));
 
-                Invoke(new delegat(timer_label_set_value), null);
+                if (timer)
+                    Invoke(new delegat(timer_label_set_value), null);
+                else
+                    timer_label.Text = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}";
 
                 if (timer)
                     timer_button.Text = "Остановить";
                 else
+                {
                     timer_button.Text = "Запустить";
+                    clock = true;
+                }
 
-                System.Timers.Timer aTimer = new System.Timers.Timer(1000);
+                System.Timers.Timer aTimer = new System.Timers.Timer(1);
                 aTimer.Elapsed += new ElapsedEventHandler(Timer);
                 aTimer.Enabled = true;
             }
@@ -513,8 +520,7 @@ namespace Serep
         {
             try
             {
-                if (timer)
-                    Invoke(new delegat(timer_label_set_value), null);
+                Invoke(new delegat(timer_label_set_value), null);
             }
             catch
             {
@@ -524,7 +530,30 @@ namespace Serep
         //установка значения текста таймера
         private void timer_label_set_value()
         {
-            timer_label.Text = (DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Hours.ToString() + ':' + (DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Minutes.ToString();
+            if (timer)
+                if ((DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Minutes < 10)
+                    timer_label.Text = $"{(DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Hours}:0{(DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Minutes}";
+                else
+                    timer_label.Text = $"{(DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Hours}:{(DateTime.Now - new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Convert.ToInt32(Calc_Hour_1.Value), Convert.ToInt32(Calc_Minutes_1.Value), 0)).Minutes}";
+            else if (!timer && clock)
+            {
+                if (DateTime.Now.Minute < 10)
+                {
+                    if (DateTime.Now.Second < 10)
+                        timer_label.Text = $"{DateTime.Now.Hour}:0{DateTime.Now.Minute}:0{DateTime.Now.Second}";
+                    else
+                        timer_label.Text = $"{DateTime.Now.Hour}:0{DateTime.Now.Minute}:{DateTime.Now.Second}";
+                }
+                else
+                {
+                    if (DateTime.Now.Second < 10)
+                        timer_label.Text = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:0{DateTime.Now.Second}";
+                    else
+                        timer_label.Text = $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}";
+                }
+            }
+            else
+                return;
         }
 
         //событие при изменении стартового значения часов
@@ -575,6 +604,8 @@ namespace Serep
             if(timer)
                 timer_button_Click(Add, null);
 
+            clock = true;
+
             TimeSpan dateTime = new();
             if (Calc_Hour_2.Value > Calc_Hour_1.Value)
                dateTime = new DateTime(0001, 1, 1, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
@@ -601,24 +632,20 @@ namespace Serep
                 Calc_Hour_2.Value = 0;
                 Calc_Minutes_1.Value = 0;
                 Calc_Minutes_2.Value = 0;
+
                 timer_label.Text = "0:0";
                 timer_button.Text = "Остановить";
-                DateTime dateTime = DateTime.Now;
-                if (DateTime.Now.Second > 30)
-                    dateTime = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute + 1, 0);
+                clock = false;
 
-                    Calc_Hour_1.Value = dateTime.Hour;
-                    Calc_Minutes_1.Value = dateTime.Minute;
+                Calc_Hour_1.Value = DateTime.Now.Hour;
+                Calc_Minutes_1.Value = DateTime.Now.Minute;
             }
             else
             {
                 timer_button.Text = "Запустить";
-                DateTime dateTime = DateTime.Now;
-                if (DateTime.Now.Second > 30)
-                    dateTime = new(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute + 1, 0);
 
-                Calc_Hour_2.Value = dateTime.Hour;
-                Calc_Minutes_2.Value = dateTime.Minute;
+                Calc_Hour_2.Value = DateTime.Now.Hour;
+                Calc_Minutes_2.Value = DateTime.Now.Minute;
 
             }
                 Registry_Write("timer", timer, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep"));
