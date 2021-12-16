@@ -1,0 +1,38 @@
+﻿<Window x:Class="Serep_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Serep_WPF"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name="Main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Padding="3,0,0,0" Height="25">
+            <MenuItem Style="{DynamicResource MenuItemStyle}" Height="25" Header="Файл" BorderBrush="#00000000">
+                <MenuItem x:Name="Open" Header="Открыть" Click="Open_Click"/>
+                <MenuItem Header="Удалить" Foreground="#FFFF6464"/>
+                <MenuItem x:Name="Show" Header="Показать" Click="Show_Click"/>
+            </MenuItem>
+            <MenuItem Style="{DynamicResource MenuItemStyle}" Height="25" Header="Окно" BorderBrush="#00000000">
+
+            </MenuItem>
+        </Menu>
+        <TabControl x:Name="tabcontrol" Grid.Row="1" ItemsSource="{Binding Tabs}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentPresenter Content="{Binding Content}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </Grid>
+</Window>

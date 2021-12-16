@@ -27,13 +27,20 @@ namespace Serep
             // заполняем дерево дисками
             FillDriveNodes();
 
-            Path.Text = Registry_Read("path", Registry.CurrentUser.CreateSubKey("Serep")).ToString();
-            StreamReader file = new(Path.Text);
-            json = JsonConvert.DeserializeObject<ReadedReport>(file.ReadToEnd());
-            file.Close();
-            File_Open();
-            if (json == null)
-                json = new();
+            try
+            {
+                Path.Text = Registry_Read("path", Registry.CurrentUser.CreateSubKey("Serep")).ToString();
+                StreamReader file = new(Path.Text);
+                json = JsonConvert.DeserializeObject<ReadedReport>(file.ReadToEnd());
+                file.Close();
+                File_Open();
+                if (json == null)
+                    json = new();
+            }
+            catch
+            {
+                Path.Text = "";
+            }
         }
 
 
@@ -444,7 +451,7 @@ namespace Serep
                 param.Reverse();
                 foreach (object[] item in param)
                 {
-                    if(Counts.Rows.Count > 1)
+                    if (Counts.Rows.Count > 1)
                     {
                         if (Convert.ToBoolean(item[2]) == false)
                         {
@@ -601,14 +608,14 @@ namespace Serep
         //событие при нажатии кнопки подсчета и переноса
         private void Calc_button_time_Click(object sender, EventArgs e)
         {
-            if(timer)
+            if (timer)
                 timer_button_Click(Add, null);
 
             clock = true;
 
             TimeSpan dateTime = new();
             if (Calc_Hour_2.Value > Calc_Hour_1.Value)
-               dateTime = new DateTime(0001, 1, 1, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
+                dateTime = new DateTime(0001, 1, 1, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
             else
                 dateTime = new DateTime(0001, 1, 2, (int)Calc_Hour_2.Value, (int)Calc_Minutes_2.Value, 0) - new DateTime(0001, 1, 1, (int)Calc_Hour_1.Value, (int)Calc_Minutes_1.Value, 0);
 
@@ -648,7 +655,7 @@ namespace Serep
                 Calc_Minutes_2.Value = DateTime.Now.Minute;
 
             }
-                Registry_Write("timer", timer, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep"));
+            Registry_Write("timer", timer, RegistryValueKind.DWord, Registry.CurrentUser.CreateSubKey("Serep"));
         }
     }
 }

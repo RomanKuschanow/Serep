@@ -19,3 +19,24 @@ C:\Users\Roman\Documents\Projects\Serep\Serep\obj\Release\net5.0-windows\Serep.d
 C:\Users\Roman\Documents\Projects\Serep\Serep\obj\Release\net5.0-windows\ref\Serep.dll
 C:\Users\Roman\Documents\Projects\Serep\Serep\obj\Release\net5.0-windows\Serep.pdb
 C:\Users\Roman\Documents\Projects\Serep\Serep\obj\Release\net5.0-windows\Serep.genruntimeconfig.cache
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Serep.exe
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Serep.deps.json
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Serep.runtimeconfig.json
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Serep.runtimeconfig.dev.json
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Serep.dll
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\ref\Serep.dll
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Serep.pdb
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\bin\Release\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.csproj.AssemblyReference.cache
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.Form1.resources
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.Properties.Resources.resources
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.csproj.GenerateResource.cache
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.AssemblyInfoInputs.cache
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.AssemblyInfo.cs
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.csproj.CopyComplete
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.dll
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\ref\Serep.dll
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.pdb
+C:\Users\Roman\Documents\Projects\Serep Old\Serep\obj\Release\net5.0-windows\Serep.genruntimeconfig.cache

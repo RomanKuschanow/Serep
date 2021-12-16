@@ -1,0 +1,25 @@
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Serep WPF.exe
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Serep WPF.deps.json
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Serep WPF.runtimeconfig.json
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Serep WPF.runtimeconfig.dev.json
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Serep WPF.dll
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\ref\Serep WPF.dll
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Serep WPF.pdb
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.csproj.AssemblyReference.cache
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF_MarkupCompile.cache
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF_MarkupCompile.lref
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.g.resources
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.AssemblyInfoInputs.cache
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.AssemblyInfo.cs
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.dll
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\ref\Serep WPF.dll
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.pdb
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\Serep WPF.genruntimeconfig.cache
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\App.baml
+C:\Users\Roman\Documents\Projects\Serep\Serep WPF\Serep WPF\obj\Debug\net5.0-windows\MenuItem.baml
