@@ -1,14 +1,113 @@
 ﻿<Page
-    x:Class="Serep.Uno.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Serep.Uno"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    x:Class="Serep.Uno.MainPage"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-      <TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500" MaxWidth="500" MinWidth="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <controls:GridSplitter
+            GripperCursor="Arrow"
+            HorizontalAlignment="Left"
+            Grid.Column="1"
+            ResizeDirection="Auto"
+            ResizeBehavior="BasedOnAlignment"
+            CursorBehavior="ChangeOnSplitterHover"
+            Width="8" Grid.RowSpan="2" MinHeight="8" MinWidth="8">
+            <controls:GridSplitter.RenderTransform>
+                <TranslateTransform X="-4" />
+            </controls:GridSplitter.RenderTransform>
+
+        </controls:GridSplitter>
+
+        <CommandBar
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Stretch"
+            DefaultLabelPosition="Right" Margin="4,0,0,0">
+
+            <AppBarButton Icon="Add" Label="New File"/>
+            <AppBarButton Icon="OpenFile" Label="Open File"/>
+            <AppBarSeparator/>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Custom:NumberBox Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
+                    <AppBarSeparator Grid.Column="1"/>
+                </Grid>
+            </AppBarElementContainer>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Custom:NumberBox Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
+                    <AppBarSeparator Grid.Column="1"/>
+                </Grid>
+            </AppBarElementContainer>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TimePicker CornerRadius="2,2,2,2" ClockIdentifier="24HourClock" />
+                    <AppBarSeparator Grid.Column="1" Height="32"/>
+                </Grid>
+            </AppBarElementContainer>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Custom:NumberBox Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
+                    <AppBarSeparator Grid.Column="1"/>
+                </Grid>
+            </AppBarElementContainer>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Custom:NumberBox Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
+                    <AppBarSeparator Grid.Column="1"/>
+                </Grid>
+            </AppBarElementContainer>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <TextBox CornerRadius="2,2,2,2" PlaceholderText="Note" MinWidth="100"/>
+            </AppBarElementContainer>
+            <AppBarSeparator/>
+            <AppBarButton Icon="Add" Label="Add Report"/>
+            <AppBarButton Icon="Delete" Label="Delete Report"/>
+
+        </CommandBar>
+
     </Grid>
 </Page>
