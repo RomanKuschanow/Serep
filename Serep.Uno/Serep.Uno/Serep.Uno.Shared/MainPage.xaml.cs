@@ -25,6 +25,15 @@ namespace Serep.Uno
         public MainPage()
         {
             this.InitializeComponent();
+
+            dataGrid.ItemsSource = DataBase.GetReports();
+
+            DataBase.SetRecord(DateTime.Now, 0, 0, 0, 0, 0, 0, "");
+            DataBase.SetRecord(DateTime.Now, 0, 0, 0, 0, 0, 0, "");
+            DataBase.SetRecord(DateTime.Now, 0, 0, 0, 0, 0, 0, "");
+
+            dataGrid.ItemsSource = DataBase.GetReports();
+
         }
     }
 }

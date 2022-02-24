@@ -106,7 +106,7 @@
             </AppBarElementContainer>
             <AppBarSeparator/>
             <AppBarButton Icon="Add" Label="Add Report"/>
-            <AppBarButton Icon="Delete" Label="Delete Report"/>
+            <AppBarToggleButton Icon="Delete" Label="Delete Report"/>
 
         </CommandBar>
 
@@ -139,19 +139,7 @@
 
         </CommandBar>
 
-        <controls:DataGrid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="4,0,0,0">
-            <controls:DataGrid.Columns>
-                <controls:DataGridCheckBoxColumn Header="Check"/>
-                <controls:DataGridTextColumn Header="Date"/>
-                <controls:DataGridTextColumn Header="Publications"/>
-                <controls:DataGridTextColumn Header="Video"/>
-                <controls:DataGridTextColumn Header="Time"/>
-                <controls:DataGridTextColumn Header="P/P"/>
-                <controls:DataGridTextColumn Header="Studies"/>
-                <controls:DataGridTextColumn Header="Notes"/>
-            </controls:DataGrid.Columns>
-
-        </controls:DataGrid>
+        <controls:DataGrid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Name="dataGrid" Margin="4,0,0,0"/>
 
     </Grid>
 </Page>

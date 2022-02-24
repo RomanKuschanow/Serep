@@ -35,6 +35,8 @@ namespace Serep.Uno
 
             this.InitializeComponent();
 
+            DataBase.InitializeDB();
+
 #if HAS_UNO || NETFX_CORE
             this.Suspending += OnSuspending;
 #endif
