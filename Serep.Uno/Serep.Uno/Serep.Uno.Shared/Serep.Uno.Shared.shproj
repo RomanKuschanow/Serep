@@ -13,5 +13,7 @@
   <ItemGroup>
     <_Globbed_Compile Remove="DataBase.cs" />
     <_Globbed_Compile Remove="IniParser.cs" />
+    <_Globbed_Compile Remove="models.cs" />
+    <_Globbed_Compile Remove="Services.cs" />
   </ItemGroup>
 </Project>

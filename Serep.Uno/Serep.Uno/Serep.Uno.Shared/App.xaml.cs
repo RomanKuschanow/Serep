@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Serep.Uno.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,11 +33,14 @@ namespace Serep.Uno
         /// </summary>
         public App()
         {
-            InitializeLogging();
+            //InitializeLogging();
 
             this.InitializeComponent();
 
-            DataBase.InitializeDB();
+            using (var db = new DBContext())
+            {
+                db.Database.Migrate();
+            }
 
 #if HAS_UNO || NETFX_CORE
             this.Suspending += OnSuspending;
@@ -126,7 +131,7 @@ namespace Serep.Uno
         /// <summary>
         /// Configures global Uno Platform logging
         /// </summary>
-        private static void InitializeLogging()
+/*        private static void InitializeLogging()
         {
             var factory = LoggerFactory.Create(builder =>
             {
@@ -181,6 +186,6 @@ namespace Serep.Uno
 #if HAS_UNO
 			global::Uno.UI.Adapter.Microsoft.Extensions.Logging.LoggingAdapter.Initialize();
 #endif
-        }
+        }*/
     }
 }
