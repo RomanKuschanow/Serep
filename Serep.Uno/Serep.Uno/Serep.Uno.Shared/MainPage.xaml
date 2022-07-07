@@ -22,26 +22,51 @@
             <local:DateFormatConverter x:Key="DateConverter"/>
             <local:TimeFormatConverter x:Key="TimeConverter"/>
         </Grid.Resources>
-        
-        
+
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="5"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        
+        <CommandBar 
+            VerticalAlignment="Stretch"
+            DefaultLabelPosition="Right"
+            Margin="0,0,4,0" Padding="4,0,0,0" HorizontalAlignment="Left">
 
-        <Grid Grid.Column="1" Grid.RowSpan="4" Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}"/>
-        <Grid Grid.Column="0" Grid.Row="2"  Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}"/>
+            <AppBarElementContainer VerticalContentAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
+                    <TextBox Text="00" Grid.Column="0" Name="hours" TextAlignment="Center" CornerRadius="2,2,2,2" IsReadOnly="True" Padding="0,0,0,0" FontSize="22" FontWeight="SemiBold" MinWidth="32"/>
+                    <TextBlock Grid.Column="1" Text=":" FontSize="20" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBox Text="00" Grid.Column="2" Name="minutes" TextAlignment="Center" CornerRadius="2,2,2,2" IsReadOnly="True" Padding="0,0,0,0" FontSize="22" FontWeight="SemiBold" MinWidth="32"/>
+                    <TextBlock Grid.Column="3" Text=":" FontSize="20" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBox Text="00" Grid.Column="4" Name="seconds" TextAlignment="Center" CornerRadius="2,2,2,2" IsReadOnly="True" Padding="0,0,0,0" FontSize="22" FontWeight="SemiBold" MinWidth="32"/>
+                </Grid>
+            </AppBarElementContainer>
+            <AppBarButton Icon="Play" Label="Start" Name="start" Click="TimerStart"/>
+            <AppBarButton Icon="Stop" Label="Stop" Name="stop" Click="TimerStop" Visibility="Collapsed"/>
+            <AppBarButton Icon="Pause" Label="Pause" Name="pause" Click="TimerPause" Visibility="Collapsed"/>
+            <AppBarButton Icon="Pause" Label="Continue" Name="_continue" Click="TimerContinue" Visibility="Collapsed"/>
+            <AppBarButton Icon="Add" Label="Add to Report" Name="addToReport" Click="TimerAdd" Visibility="Collapsed"/>
+
+        </CommandBar>
+
+        <Grid  Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Grid.Row="1"/>
+        
         <CommandBar
-            Grid.Column="2"
+            Grid.Row="2"
             HorizontalAlignment="Left"
             VerticalAlignment="Stretch"
             DefaultLabelPosition="Right" Margin="4,0,0,0">
@@ -52,9 +77,15 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <Custom:NumberBox Name="publications" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
-                    <AppBarSeparator Grid.Column="1"/>
+                    <TextBlock Grid.Column="0" Text="Publications" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Center" Opacity="0.6"/>
+
+                    <Custom:NumberBox Name="publications" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2" Grid.Row="1"/>
+                    <AppBarSeparator Grid.Column="1" Grid.Row="1"/>
                 </Grid>
             </AppBarElementContainer>
             <AppBarElementContainer VerticalContentAlignment="Center">
@@ -63,9 +94,15 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <Custom:NumberBox Name="videos" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
-                    <AppBarSeparator Grid.Column="1"/>
+                    <TextBlock Grid.Column="0" Text="Videos" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Center" Opacity="0.6"/>
+
+                    <Custom:NumberBox Name="videos" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2" Grid.Row="1"/>
+                    <AppBarSeparator Grid.Column="1" Grid.Row="1"/>
                 </Grid>
             </AppBarElementContainer>
             <AppBarElementContainer VerticalContentAlignment="Center">
@@ -74,9 +111,15 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <TimePicker x:Name="time" CornerRadius="2,2,2,2" ClockIdentifier="24HourClock" Width="242" Time="00:00:00" TimeChanged="TimeChanged"/>
-                    <AppBarSeparator Grid.Column="1" Height="32"/>
+                    <TextBlock Grid.Column="0" Text="Time" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Center" Opacity="0.6"/>
+
+                    <TimePicker x:Name="time" CornerRadius="2,2,2,2" ClockIdentifier="24HourClock" Width="242" Time="00:00:00" TimeChanged="TimeChanged" Grid.Row="1"/>
+                    <AppBarSeparator Grid.Column="1" Height="32" Grid.Row="1"/>
                 </Grid>
             </AppBarElementContainer>
             <AppBarElementContainer VerticalContentAlignment="Center">
@@ -85,9 +128,15 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <Custom:NumberBox Name="pp" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
-                    <AppBarSeparator Grid.Column="1"/>
+                    <TextBlock Grid.Column="0" Text="Pp" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Center" Opacity="0.6"/>
+
+                    <Custom:NumberBox Name="pp" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2" Grid.Row="1"/>
+                    <AppBarSeparator Grid.Column="1" Grid.Row="1"/>
                 </Grid>
             </AppBarElementContainer>
             <AppBarElementContainer VerticalContentAlignment="Center">
@@ -96,52 +145,49 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <Custom:NumberBox Name="studys" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2"/>
-                    <AppBarSeparator Grid.Column="1"/>
+                    <TextBlock Grid.Column="0" Text="Studys" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Center" Opacity="0.6"/>
+
+                    <Custom:NumberBox Name="studys" Value="0" SpinButtonPlacementMode="Compact" Minimum="0" CornerRadius="2,2,2,2" Grid.Row="1"/>
+                    <AppBarSeparator Grid.Column="1" Grid.Row="1"/>
                 </Grid>
             </AppBarElementContainer>
             <AppBarElementContainer VerticalContentAlignment="Center">
-                <TextBox Name="note" CornerRadius="2,2,2,2" PlaceholderText="Note" MinWidth="100"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="" VerticalAlignment="Top" FontSize="10" HorizontalAlignment="Center"/>
+
+                    <TextBox Name="note" CornerRadius="2,2,2,2" PlaceholderText="Note" MinWidth="100" Grid.Row="1"/>
+                </Grid>
             </AppBarElementContainer>
-            <AppBarSeparator/>
+            <AppBarSeparator Width="10"/>
             <AppBarButton Icon="Add" Label="Add Report" Click="AddClick" IsEnabled="False" Name="add"/>
 
         </CommandBar>
+        
+        <Grid  Background="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Grid.Row="3"/>
 
-        <CommandBar
-            HorizontalAlignment="Center"
-            VerticalAlignment="Stretch"
-            DefaultLabelPosition="Right"
-            Margin="0,0,4,0" Padding="4,0,0,0">
-
-            <AppBarElementContainer VerticalContentAlignment="Center">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox Grid.Column="0" TextAlignment="Center" CornerRadius="2,2,2,2" IsReadOnly="True" Text="00" Padding="0,0,0,0" FontSize="22" FontWeight="SemiBold" MinWidth="32"/>
-                    <TextBlock Grid.Column="1" Text=":" FontSize="20" FontWeight="SemiBold" TextAlignment="Center"/>
-                    <TextBox Grid.Column="2" TextAlignment="Center" CornerRadius="2,2,2,2" IsReadOnly="True" Text="00" Padding="0,0,0,0" FontSize="22" FontWeight="SemiBold" MinWidth="32"/>
-                    <TextBlock Grid.Column="3" Text=":" FontSize="20" FontWeight="SemiBold" TextAlignment="Center"/>
-                    <TextBox Grid.Column="4" TextAlignment="Center" CornerRadius="2,2,2,2" IsReadOnly="True" Text="00" Padding="0,0,0,0" FontSize="22" FontWeight="SemiBold" MinWidth="32"/>
-                </Grid>
-            </AppBarElementContainer>
-            <AppBarButton Icon="Play" Label="Start"/>
-            <AppBarButton Icon="Pause" Label="Continue" Visibility="Collapsed"/>
-            <AppBarButton Icon="Add" Label="Add to Report"/>
-
-        </CommandBar>
-
-        <controls:DataGrid Grid.Row="1" Grid.Column="2" Name="dataGrid" Margin="4,0,0,0" Loaded="GridLoaded" Grid.RowSpan="3" GridLinesVisibility="Horizontal" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <controls:DataGrid Grid.Row="4"
+                           Grid.Column="2"
+                           Name="dataGrid"
+                           Margin="4,0,0,0"
+                           Grid.RowSpan="3"
+                           GridLinesVisibility="All"
+                           ItemsSource="{Binding}"
+                           AutoGenerateColumns="False"
+                           LoadingRowGroup="LoadingRowGroup" 
+                           RowGroupHeaderPropertyNameAlternative="Month"
+                           SelectionMode="Single">
             <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Visibility="Collapsed" Header="id" Binding="{Binding id}"/>
-                <controls:DataGridTemplateColumn Header="date" CanUserReorder="True">
+                <controls:DataGridTemplateColumn Header="date" CanUserReorder="True" Width="116">
                     <controls:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Date, Converter={StaticResource DateConverter}}" VerticalAlignment="Center" Margin="8,0,0,0"/>

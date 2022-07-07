@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Toolkit.Collections;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using Serep.Uno;
 using Serep.Uno.Model;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -36,20 +38,81 @@ namespace Serep.Uno
     public sealed partial class MainPage : Page
     {
         public static ObservableCollection<Reports> Sourse { get; set; }
+        public ObservableGroupedCollection<DateTime, Reports> groupedSource { get; set; }
+
+        DispatcherTimer dispatcherTimer;
+        TimeSpan timer;
 
         public MainPage()
         {
             this.InitializeComponent();
-            ApplicationView.PreferredLaunchViewSize = new Size(1200, 800);
+            ApplicationView.PreferredLaunchViewSize = new Size(800, 500);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             Sourse = new();
             Load();
+            DispatcherTimerSetup();
         }
 
-        private void GridLoaded(object sender, RoutedEventArgs e)
+        public void Load()
         {
-            dataGrid.Columns[0].Visibility = Visibility.Collapsed;
+            using var db = new DBContext();
+
+            var reports = db.reports.ToList();
+
+            foreach (var report in reports)
+            {
+                report.PropertyChanged += Report_PropertyChanged;
+                Sourse.Add(report);
+            }
+
+            Sort();
         }
+
+
+        private void Sort()
+        {
+            Sourse = new ObservableCollection<Reports>(from item in Sourse orderby item.Date descending select item);
+
+            var grouped = Sourse.GroupBy(item => new DateTime(item.Date.Year, item.Date.Month, 1)).OrderBy(g => g.Key);
+            groupedSource = new ObservableGroupedCollection<DateTime, Reports>(grouped);
+            groupedSource = new ObservableGroupedCollection<DateTime, Reports>(from item in groupedSource orderby item.Key descending select item);
+            var cvs = new CollectionViewSource
+            {
+                IsSourceGrouped = true,
+                Source = groupedSource,
+            };
+
+            dataGrid.ItemsSource = cvs.View;
+        }
+        private void LoadingRowGroup(object sender, DataGridRowGroupHeaderEventArgs e)
+        {
+            ICollectionViewGroup group = e.RowGroupHeader.CollectionViewGroup;
+            Reports item = group.GroupItems[0] as Reports;
+            e.RowGroupHeader.PropertyValue = $"{item.Date.Year}.{item.Date.Month} total count: {Count(item.Date.Year, item.Date.Month)}";
+        }
+        private string Count(int year, int month)
+        {
+            int pub_count = 0;
+            int vid_count = 0;
+            TimeSpan time_count = new();
+            int pp_count = 0;
+            int std_count = 0;
+
+            foreach (var rep in Sourse)
+            {
+                if (rep.Date.Year == year && rep.Date.Month == month)
+                {
+                    pub_count += rep.Publications;
+                    vid_count += rep.Videos;
+                    time_count += rep.Time;
+                    pp_count += rep.Pp;
+                    std_count += rep.Studys;
+                }
+            }
+
+            return $"publications — {pub_count} videos — {vid_count} time — {time_count.ToString(@"hh\:mm")} pp — {pp_count} studys — {std_count}";
+        }
+
 
         private void TimeChanged(object sender, TimePickerValueChangedEventArgs e)
         {
@@ -88,24 +151,8 @@ namespace Serep.Uno
             db.Add(report);
             db.SaveChanges();
             Sourse.Add(report);
-            Sourse = new ObservableCollection<Reports>(from item in Sourse orderby item.Date descending select item);
-            dataGrid.ItemsSource = Sourse;
-        }
-
-        public void Load()
-        {
-            using var db = new DBContext();
-
-            var reports = db.reports.ToList();
-
-            foreach (var report in reports)
-            {
-                report.PropertyChanged += Report_PropertyChanged;
-                Sourse.Add(report);
-            }
-
-            Sourse = new ObservableCollection<Reports>(from item in Sourse orderby item.Date descending select item);
-            dataGrid.ItemsSource = Sourse;
+            report.PropertyChanged += Report_PropertyChanged;
+            Sort();
         }
 
         private void Report_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -115,8 +162,74 @@ namespace Serep.Uno
 
             db.reports.Update(d);
             db.SaveChanges();
-            Sourse = new ObservableCollection<Reports>(from item in Sourse orderby item.Date descending select item);
-            dataGrid.ItemsSource = Sourse;
+            Sort();
+            if (e.PropertyName == "Date")
+            {
+                dataGrid.SelectedItem = d;
+            }
+        }
+
+
+        public void DispatcherTimerSetup()
+        {
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+        }
+        void dispatcherTimer_Tick(object sender, object e)
+        {
+            timer += new TimeSpan(0, 0, 1);
+            hours.Text = timer.ToString(@"hh");
+            minutes.Text = timer.ToString(@"mm");
+            seconds.Text = timer.ToString(@"ss");
+        }
+
+        private void TimerStart(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Start();
+            start.Visibility = Visibility.Collapsed;
+            stop.Visibility = Visibility.Visible;
+            pause.Visibility = Visibility.Visible;
+            _continue.Visibility = Visibility.Collapsed;
+            addToReport.Visibility = Visibility.Collapsed;
+        }
+        private void TimerStop(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
+            start.Visibility = Visibility.Visible;
+            stop.Visibility = Visibility.Collapsed;
+            pause.Visibility = Visibility.Collapsed;
+            _continue.Visibility = Visibility.Collapsed;
+            addToReport.Visibility = Visibility.Visible;
+        }
+        private void TimerPause(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
+            start.Visibility = Visibility.Collapsed;
+            stop.Visibility = Visibility.Visible;
+            pause.Visibility = Visibility.Collapsed;
+            _continue.Visibility = Visibility.Visible;
+            addToReport.Visibility = Visibility.Collapsed;
+        }
+        private void TimerContinue(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Start();
+            start.Visibility = Visibility.Collapsed;
+            stop.Visibility = Visibility.Visible;
+            pause.Visibility = Visibility.Visible;
+            _continue.Visibility = Visibility.Collapsed;
+            addToReport.Visibility = Visibility.Collapsed;
+        }
+        private void TimerAdd(object sender, RoutedEventArgs e)
+        {
+            if (timer.Seconds >= 30) { timer += new TimeSpan(0, 0, 60 - timer.Seconds); }
+            else { timer -= new TimeSpan(0, 0, timer.Seconds); }
+            time.Time = timer;
+            timer = new();
+            hours.Text = "00";
+            minutes.Text = "00";
+            seconds.Text = "00";
+            addToReport.Visibility = Visibility.Collapsed;
         }
     }
 
@@ -126,7 +239,7 @@ namespace Serep.Uno
         private void CmdExec(Object obj)
         {
             using var db = new DBContext();
-            var rep = obj as Reports; 
+            var rep = obj as Reports;
 
             db.Remove(rep);
             db.SaveChanges();
@@ -139,7 +252,6 @@ namespace Serep.Uno
          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         #endregion
     }
-
     public class RelayCommand : ICommand
     {
         private readonly Predicate<object> _canExecute;
