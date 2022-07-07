@@ -187,6 +187,10 @@ namespace Serep.Uno
         private void TimerStart(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Start();
+            timer = new();
+            hours.Text = "00";
+            minutes.Text = "00";
+            seconds.Text = "00";
             start.Visibility = Visibility.Collapsed;
             stop.Visibility = Visibility.Visible;
             pause.Visibility = Visibility.Visible;
