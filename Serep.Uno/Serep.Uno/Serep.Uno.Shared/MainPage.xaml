@@ -195,7 +195,7 @@
                     </controls:DataGridTemplateColumn.CellTemplate>
                     <controls:DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <CalendarDatePicker Date="{Binding Date, Mode=TwoWay}" DateFormat="{}{year.full}.{month.integer(2)}.{day.integer(2)}"/>
+                            <CalendarDatePicker Date="{Binding Date, Mode=TwoWay}" DateFormat="{}{year.full}.{month.integer(2)}.{day.integer(2)}" FirstDayOfWeek="Monday"/>
                         </DataTemplate>
                     </controls:DataGridTemplateColumn.CellEditingTemplate>
                 </controls:DataGridTemplateColumn>
