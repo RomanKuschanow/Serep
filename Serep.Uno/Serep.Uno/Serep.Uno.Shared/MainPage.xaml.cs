@@ -110,6 +110,18 @@ namespace Serep.Uno
                 }
             }
 
+            TimeSpan prev = new();
+
+            foreach (var rep in Sourse)
+            {
+                if (Convert.ToInt32($"{year}{month}") > Convert.ToInt32($"{rep.Date.Year}{rep.Date.Month}"))
+                {
+                    prev += rep.Time;
+                }
+            }
+
+            time_count = time_count.Add(new TimeSpan(0, prev.Minutes, 0));
+
             return $"publications — {pub_count} videos — {vid_count} time — {time_count.ToString(@"hh\:mm")} pp — {pp_count} studys — {std_count}";
         }
 
